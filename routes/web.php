@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 Route::group(['prefix' => 'auth'], function (){
@@ -50,6 +51,12 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/{order}/accept',[OrderController::class,'acceptOneOrder'])->name('order.accept');
         Route::post('/{order}/cancel',[OrderController::class, 'cancelOneOrder'])->name('order.cancel');
         Route::delete('/{order}/delete',[OrderController::class,'deleteOneOrder'])->name('order.delete');
+    });
+    Route::group(['prefix'=>'profile'],function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('profile.index');
+        Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::put('/', [ProfileController::class, 'updatePassword'])->name('password.update');
     });
 });
 

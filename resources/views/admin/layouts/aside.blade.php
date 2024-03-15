@@ -2,7 +2,7 @@
     <div class="position-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link text-success m-3" href=""> <i data-feather="user"></i>
+                <a class="nav-link text-success m-3" href="{{route('profile.index')}}"> <i data-feather="user"></i>
                     {{Auth::user()->name}}
                 </a>
             </li>
