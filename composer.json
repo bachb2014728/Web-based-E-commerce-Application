@@ -31,7 +31,13 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "classmap": [
+            "app/Helper/"
+        ],
+        "files": [
+            "app/Helper/function.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [
