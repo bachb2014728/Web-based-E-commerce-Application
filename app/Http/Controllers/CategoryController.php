@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View as ViewContract;
@@ -21,7 +23,7 @@ class CategoryController extends Controller
         $category = $this->getCategories();
         return view('admin.categories.create',compact('category'));
     }
-    public function saveNewCategory(Request $request): Response
+    public function saveNewCategory(StoreCategoryRequest $request): Response
     {
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         Category::create($request->all());
@@ -39,7 +41,7 @@ class CategoryController extends Controller
         return view('admin.categories.update', compact('category','categories'));
     }
 
-    public function updateOneCategory(Request $request, Category $category): Response
+    public function updateOneCategory(UpdateCategoryRequest $request, Category $category): Response
     {
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $category->update($request->all());
