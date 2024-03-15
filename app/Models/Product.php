@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static orderBy(string $string, string $string1)
  * @method static findOrFail(String $id)
  * @method static withAvg(string $string, string $string1)
+ * @method static find(mixed $id)
+ * @method static where(string $string, $slug)
  */
 class Product extends Model
 {

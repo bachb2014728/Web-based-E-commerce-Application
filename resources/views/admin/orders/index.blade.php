@@ -30,7 +30,7 @@
         <h1 class="h2">Quản lí đơn hàng</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item fw-bold"><a class="text-decoration-none" href="{{asset('admin')}}">Home</a></li>
+                <li class="breadcrumb-item fw-bold"><a class="text-decoration-none" href="">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Đơn hàng </li>
             </ol>
         </nav>
@@ -121,14 +121,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a class="btn btn-warning btn-sm" href="{{route('bill.accept',$item->id)}}">Duyệt</a>
+                                                    <a class="btn btn-warning btn-sm" href="{{route('order.accept',$item->id)}}">Duyệt</a>
                                                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                                <a type="button" class="btn btn-warning btn-sm" href="{{route('bill.accept',$item->id)}}">Duyệt</a>
+                                <a type="button" class="btn btn-warning btn-sm" href="{{route('order.accept',$item->id)}}">Duyệt</a>
                                 <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal_{{$item->id}}_delete">Hủy đơn</button>
                                 <div class="modal fade" id="exampleModal_{{$item->id}}_delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -139,7 +139,7 @@
                                                     <span aria-hidden="true"> <span data-feather="x"></span></span>
                                                 </button>
                                             </div>
-                                            <form action="{{route('bill.cancel',$item->id)}}" method="POST">
+                                            <form action="{{route('order.cancel',$item->id)}}" method="POST">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="input-group input-group-lg">
@@ -263,7 +263,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form action="{{ route('bill.delete', $item->id) }}" method="post" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Bạn chắc chắn xóa hóa đơn ?')">
+                                <form action="{{ route('order.delete', $item->id) }}" method="post" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Bạn chắc chắn xóa hóa đơn ?')">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
