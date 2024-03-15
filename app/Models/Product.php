@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @method static orderBy(string $string, string $string1)
  * @method static findOrFail(String $id)
+ * @method static withAvg(string $string, string $string1)
  */
 class Product extends Model
 {
@@ -54,5 +55,13 @@ class Product extends Model
                 }
             }
         }
+    }
+    public function review(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function comment(): HasMany
+    {
+        return $this->hasMany(Comment::class);
     }
 }

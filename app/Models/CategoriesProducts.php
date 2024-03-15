@@ -5,6 +5,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static where(string $string, $id)
+ */
 class CategoriesProducts extends Model
 {
     use HasFactory;
