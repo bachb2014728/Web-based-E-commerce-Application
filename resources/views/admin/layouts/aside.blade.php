@@ -10,7 +10,7 @@
                 <span>Interface</span>
             </h6>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="">
+                <a class="nav-link" aria-current="page" href="{{route('admin.index')}}">
                     <span data-feather="home"></span>Dashboard
                 </a>
             </li>
@@ -21,19 +21,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('product.index')}}">
                     <span data-feather="shopping-cart"></span>
                     Sản phẩm
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('member.index')}}">
                     <span data-feather="users"></span>
                     Thành viên
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('order.index')}}">
                     <span data-feather="shopping-bag"></span>
                     Đơn hàng
                 </a>

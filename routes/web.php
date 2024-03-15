@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 Route::group(['prefix' => 'auth'], function (){
@@ -10,6 +13,8 @@ Route::group(['prefix' => 'auth'], function (){
     Route::get('/logout',[AdminController::class,'logoutAdmin'])->name('auth.logout');
 });
 Route::prefix('admin')->middleware('admin')->group(function(){
+    Route::get('/',[DashboardController::class,'index'])->name('admin.index');
+
     Route::group(['prefix'=> 'category'], function(){
         Route::get('/', [CategoryController::class,'getListCategory'])->name('category.index');
         Route::get('/create', [CategoryController::class,'createNewCategory'])->name('category.create');
@@ -33,6 +38,18 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::post('/{product}/detail',[ProductController::class,'saveNewDetail'])->name('product.addDetail');
         Route::delete('/{product}/detail',[ProductController::class,'deleteOneDetail'])->name('product.deleteDetail');
         Route::put('/detail/{id}',[ProductController::class,'saveUpdateDetail'])->name('product.updateDetail');
+    });
+    Route::group(['prefix'=> 'member'], function (){
+        Route::get('/',[MemberController::class , 'getListMember'])->name('member.index');
+        Route::get('/{member}',[MemberController::class,'getOneMember'])->name('member.getOne');
+        Route::delete('/{member}/delete',[MemberController::class,'deleteOneMember'])->name('member.delete');
+        Route::get('/{member}/block',[MemberController::class,'blockOneMember'])->name('member.block');
+    });
+    Route::group(['prefix'=> 'order'], function (){
+        Route::get('/',[OrderController::class,'getListOrder'])->name('order.index');
+        Route::get('/{order}/accept',[OrderController::class,'acceptOneOrder'])->name('order.accept');
+        Route::post('/{order}/cancel',[OrderController::class, 'cancelOneOrder'])->name('order.cancel');
+        Route::delete('/{order}/delete',[OrderController::class,'deleteOneOrder'])->name('order.delete');
     });
 });
 
