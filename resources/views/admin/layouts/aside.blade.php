@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{asset('/')}}">
                     <span data-feather="bar-chart-2"></span>
                     Chuyển hướng người dùng
                 </a>

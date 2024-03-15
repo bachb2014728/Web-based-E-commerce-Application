@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
-use App\Http\Requests\StorePruductRequest;
 use App\Models\CategoriesProducts;
 use App\Models\Category;
 use App\Models\ImageDetailProduct;
@@ -40,7 +40,7 @@ class ProductController extends Controller
         }
     }
 
-    public function saveNewProduct(StorePruductRequest $request): RedirectResponse
+    public function saveNewProduct(StoreProductRequest $request): RedirectResponse
     {
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         try {

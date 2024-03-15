@@ -16,7 +16,7 @@
                     {{Auth::user()->name}}
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item label" href="{{route('profile.index')}}"> <i class="fa fa-drivers-license-o"></i> Thông tin</a></li>
+                    <li><a class="dropdown-item label" href="{{route('profile.indexUser')}}"> <i class="fa fa-drivers-license-o"></i> Thông tin</a></li>
                     @if (Auth::user()->role == 1)
                     <li><a class="dropdown-item label" href="{{route('admin.index')}}"><i class="fa fa-database"></i> Chuyển hướng sang admin</a></li>
                     @endif
