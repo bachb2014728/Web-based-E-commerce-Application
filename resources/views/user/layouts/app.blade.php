@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/pricing/">
     <link href="{{asset('node_modules')}}/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     @yield('custom_css')
-    <link href="{{asset('src')}}/css/signin.css" rel="stylesheet">
+    <link href="{{asset('src')}}/css/sign.css" rel="stylesheet">
     <link href="{{asset('src')}}/css/auth.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

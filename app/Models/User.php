@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @method static orderBy(string $string, string $string1)
+ * @method static where(string $string, mixed $email)
  */
 class User extends Authenticatable
 {
