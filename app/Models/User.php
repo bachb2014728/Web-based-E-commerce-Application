@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @method static orderBy(string $string, string $string1)
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -20,8 +23,49 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'address',
         'password',
+        'birthday',
+        'gender',
+        'facebook',
+        'instagram',
+        'twitter',
+        'job',
+        'updated_at',
+        'deleted'
     ];
+    public function diachi(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ListAddressUser::class);
+    }
+    public function hoadon(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+    public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+    public function activity(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Activity::class);
+    }
+    public function deleteT(): void
+    {
+        $this->deleted = true;
+        $this->save();
+
+    }
+    public function review(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function comment(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.
